@@ -1,0 +1,14 @@
+{
+  "name": "vue3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "rollup -c -w"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@rollup/plugin-node-resolve": "^13.0.5"
+  }
+}
