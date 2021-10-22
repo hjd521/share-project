@@ -68,7 +68,7 @@ export function effect(fn, options = {}) {
   return effect
 }
 function cleanup(effect) {
-  console.log('清楚')
+  console.log('清除')
 }
 function createReactiveEffect(fn, options) {
   const effect = function() {

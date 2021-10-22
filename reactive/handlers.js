@@ -2,6 +2,8 @@ import { hasOwn, isIntegerKey, isObject } from "../utils/index.js"
 import { track,trigger } from "./effect.js"
 const get = createGetter()
 const set = createSetter()
+const shallowGet = createGetter(false, true)
+const shallowGet = createSetter()
 let TrackOpTypes = {
   GET: 'get',
   SET: 'set',
@@ -10,9 +12,9 @@ let TrackOpTypes = {
 function hasChanged(n,o) {
   return !Object.is(n, 0)
 }
+// 收集依赖
 function createGetter(isReadonly = false, shallow = false) {
   return function get(target,key,receiver) {
-    console.log('get')
     const res = Reflect.get(target, key, receiver)
     // 如果不是readonly那么收集依赖
     if(!isReadonly){
